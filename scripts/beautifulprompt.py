@@ -217,7 +217,7 @@ def on_ui_tabs():
         submit.click(
             fn=ui.wrap_gradio_call(generate, extra_outputs=['']),
             _js="submit_beautifulprompt",
-            inputs=["beautifulprompt", model_selection, batch_count, batch_size, prompt, min_length, max_length,
+            inputs=[model_selection, model_selection, batch_count, batch_size, prompt, min_length, max_length,
                     num_beams, temperature, repetition_penalty, length_penalty, sampling_mode, top_k, top_p, ],
             outputs=[res, res_info])
 
