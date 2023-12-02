@@ -217,7 +217,7 @@ def on_ui_tabs():
         submit.click(
             fn=ui.wrap_gradio_call(generate, extra_outputs=['']),
             _js="submit_beautifulprompt",
-            inputs=["beautifulprompt", model_selection, batch_count, batch_size, prompt, min_length, max_length,
+            inputs=[model_selection, model_selection, batch_count, batch_size, prompt, min_length, max_length,
                     num_beams, temperature, repetition_penalty, length_penalty, sampling_mode, top_k, top_p, ],
             outputs=[res, res_info])
 
@@ -259,5 +259,5 @@ def on_unload():
 
 
 script_callbacks.on_ui_tabs(on_ui_tabs)
-script_callbacks.on_ui_settings(on_ui_settings)
+script_callbacks.on_ui_settings(on_ui_settings)  # 往webui中注册，然后在自己的插件中去使用这些变量
 script_callbacks.on_script_unloaded(on_unload)
